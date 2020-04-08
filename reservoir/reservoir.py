@@ -57,12 +57,12 @@ class UniformSampler(object):
 
         """
         self.counter += 1
-        switch = randint(0, self.counter)
         if len(self.sample) < self._max:
             self.sample.append(item)
-        elif switch < self._max:
+            return self.sample
+        switch = randint(0, self.counter)
+        if switch < self._max:
             self.sample[switch] = item
-
         return self.sample
 
     def stream_sample(self, stream):
