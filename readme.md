@@ -55,7 +55,7 @@ As a module the `UniformSampler` interface is quite simple.
     sampler.feed(1)
     sampler.feed([1, 2, 3]) 
 
-    sampler.saves
+    sampler.sample
     >>> ["github", [1, 2, 3]]
 
     # sampler.stream_sample takes in an iterable and selects the k elements
