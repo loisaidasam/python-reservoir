@@ -53,17 +53,18 @@ class UniformSampler(object):
             item: Item you wish you sample next.
 
         Returns:
-            The resulting reservoir after sampling.
+            Boolean, whether the item was saved to the sample or not
 
         """
         self.counter += 1
         if len(self.sample) < self._max:
             self.sample.append(item)
-            return self.sample
+            return True
         switch = randint(0, self.counter)
         if switch < self._max:
             self.sample[switch] = item
-        return self.sample
+            return True
+        return False
 
     def stream_sample(self, stream):
         """Sample k elements from an iterable! Duh.
