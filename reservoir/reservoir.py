@@ -25,8 +25,8 @@ Date: May 24th, 2014
 
 """
 from __future__ import print_function
-from random import randint
 from argparse import ArgumentParser
+import random
 import sys
 
 
@@ -60,7 +60,7 @@ class UniformSampler(object):
         if len(self.sample) < self._max:
             self.sample.append(item)
             return True
-        switch = randint(0, self.counter)
+        switch = int(self.counter * random.random())
         if switch < self._max:
             self.sample[switch] = item
             return True
