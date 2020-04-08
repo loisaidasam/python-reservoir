@@ -73,12 +73,11 @@ class UniformSampler(object):
             stream: Any iterable object to sample from.
 
         Returns:
-            Rhe list of elements sampled from the iterable
+            The list of elements sampled from the iterable
 
         """
         for item in stream:
             self.feed(item)
-
         return self.sample
 
     def __repr__(self):
@@ -103,7 +102,7 @@ def gen_parser():
                         help="The number of elements you wish you sample",
                         type=int)
     group.add_argument('-f', '--file',
-                      default=False,
+                       default=False,
                        type=str)
     group.add_argument('-s', '--stream',
                        default=False,
@@ -126,6 +125,7 @@ def main():
         for line in sys.stdin:
             sampler.feed(line.strip())
         print(sampler)
+
 
 if __name__ == "__main__":
     sys.exit(main())
